@@ -12,9 +12,9 @@ public class ExercisesBean {
     public int subjectId;//每道习题的id
     public String subject;//每道习题的题干
     public String a;//A选项
-    public String b;//
-    public String c;//
-    public String d;//
+    public String b;//B
+    public String c;//C
+    public String d;//D
     public int answer;//每道习题的正确答案
     public int select;//用户选中的项（0表示所选项对了，1表示A选项错，2表示B选项错，3表示C选项错，4表示D选项错）
 

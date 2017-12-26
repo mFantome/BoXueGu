@@ -44,7 +44,7 @@ public class RegisiterActivity extends AppCompatActivity {
         rl_title_bar = (RelativeLayout) findViewById(R.id.title_bar);
         rl_title_bar.setBackgroundColor(Color.TRANSPARENT);
 
-        btn_regisiter = (Button) findViewById(R.id.btn_regisier);
+        btn_regisiter = (Button) findViewById(R.id.btn_regisiter);
         et_username = (EditText) findViewById(R.id.et_username);
         et_pwd = (EditText) findViewById(R.id.et_pwd);
         et_pwd_again = (EditText) findViewById(R.id.et_pwd_again);
@@ -52,6 +52,7 @@ public class RegisiterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 RegisiterActivity.this.finish();
+
             }
         });
         btn_regisiter.setOnClickListener(new View.OnClickListener() {
@@ -81,9 +82,10 @@ public class RegisiterActivity extends AppCompatActivity {
                     saveRigisiterInfo(username,pwd);
                     //注册成功后，用户名传递到LoginActivity中
                     Intent data = new Intent();
-                    data.putExtra("username",username);
-                    //data.putExtra("pwd",pwd);
+                    data.putExtra("userName",username);
+                    data.putExtra("pwd",pwd);
                     setResult(RESULT_OK,data);
+
                     RegisiterActivity.this.finish();
                 }
             }
@@ -114,7 +116,7 @@ public class RegisiterActivity extends AppCompatActivity {
     private void getEditString() {
         //trim()去除空白字符串
         username = et_username.getText().toString().trim();
-        pwd = et_pwd.getText().toString();
+        pwd = et_pwd.getText().toString().trim();
         pwdAgain = et_pwd_again.getText().toString().trim();
 
     }

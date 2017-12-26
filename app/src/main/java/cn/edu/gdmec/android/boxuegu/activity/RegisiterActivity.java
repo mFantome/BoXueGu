@@ -98,7 +98,7 @@ public class RegisiterActivity extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("loginInfo",MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString(username,md5pwd);
-        editor.commit(); //提交修改
+        editor.commit(); //提交修改。。
     }
 
     private boolean isExistUserName(String username) {

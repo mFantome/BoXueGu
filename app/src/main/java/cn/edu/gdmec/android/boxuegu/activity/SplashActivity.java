@@ -9,7 +9,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import java.sql.Time;
 import java.util.Timer;
 import java.util.TimerTask;
 

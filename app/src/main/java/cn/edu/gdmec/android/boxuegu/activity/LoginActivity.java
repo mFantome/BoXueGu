@@ -59,7 +59,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this,RegisiterActivity.class);
                 startActivityForResult(intent,1);
-
             }
         });
         tv_find_pwd.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +66,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //跳转到找回密码界面
+                Intent intent = new Intent(LoginActivity.this,RegisiterActivity.class);
             }
         });
 

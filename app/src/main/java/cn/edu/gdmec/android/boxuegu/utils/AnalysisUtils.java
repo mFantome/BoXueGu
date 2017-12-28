@@ -1,14 +1,7 @@
 package cn.edu.gdmec.android.boxuegu.utils;
 
-import android.util.Xml;
-
-import org.xmlpull.v1.XmlPullParser;
-
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-
-import cn.edu.gdmec.android.boxuegu.bean.ExercisesBean;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 /**
  * Created by student on 17/12/25.
@@ -39,4 +32,10 @@ public class AnalysisUtils {
      }
      }
      }*/
+
+    public static String readLoginUserName(Context context){
+        SharedPreferences sp = context.getSharedPreferences("loginInfo",Context.MODE_PRIVATE);
+        String userName = sp.getString("loginUserName","");
+        return userName;
+    }
 }

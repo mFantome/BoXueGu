@@ -93,7 +93,7 @@ public class MyInfoView {
         });
     }
 
-    private void setLoginParams(boolean isLogin) {
+    public void setLoginParams(boolean isLogin) {
         if(isLogin){
             tv_user_name.setText(AnalysisUtils.readLoginUserName(mContext));
         }else{

@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     /**
-     *显示对应界面
+     *显示对应界面。。
      * @param index
      */
     private void selectDisplayView(int index) {

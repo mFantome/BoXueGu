@@ -160,16 +160,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 tv_main_title.setText("博学谷课堂");
                 break;
             case 1:
-                mCourseBtn.setSelected(true);
+                mExercisesBtn.setSelected(true);
                 iv_exercises.setImageResource(R.drawable.main_exercises_icon_selected);
                 tv_exercises.setTextColor(Color.parseColor("#0097F7"));
                 rl_title_bar.setVisibility(View.VISIBLE);
                 tv_main_title.setText("博学谷习题");
                 break;
             case 2:
-                mCourseBtn.setSelected(true);
-                iv_course.setImageResource(R.drawable.main_my_icon_selected);
-                tv_course.setTextColor(Color.parseColor("#0097F7"));
+                mMyInfoBtn.setSelected(true);
+                iv_myInfo.setImageResource(R.drawable.main_my_icon_selected);
+                tv_main_title.setTextColor(Color.parseColor("#0097F7"));
                 rl_title_bar.setVisibility(View.VISIBLE);
                 break;
         }

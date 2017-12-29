@@ -18,7 +18,7 @@
             android:id="@+id/main_body"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/white"></FrameLayout>
+            android:background="@android:color/white"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/main_bottom_bar"
@@ -29,12 +29,12 @@
         android:background="#f2f2f2"
         >
         <RelativeLayout
-            android:id="@+id/botton_bar_course_btn"
+            android:id="@+id/bottom_bar_course_btn"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1">
             <TextView
-                android:id="@+id/botton_bar_text_course"
+                android:id="@+id/bottom_bar_text_course"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -47,9 +47,10 @@
                 android:textSize="14sp"
                 />
             <ImageView
-                android:id="@+id/botton_bar_image_course"
+                android:id="@+id/bottom_bar_image_course"
                 android:layout_width="27dp"
                 android:layout_height="27dp"
+                android:layout_above="@+id/bottom_bar_text_course"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="3dp"
@@ -57,12 +58,12 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/botton_bar_exercises_btn"
+            android:id="@+id/bottom_bar_exercises_btn"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1">
             <TextView
-                android:id="@+id/botton_bar_text_exercises"
+                android:id="@+id/bottom_bar_text_exercises"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -75,7 +76,7 @@
                 android:textSize="14sp"
                 />
             <ImageView
-                android:id="@+id/botton_bar_image_exercises"
+                android:id="@+id/bottom_bar_image_exercises"
                 android:layout_width="27dp"
                 android:layout_height="27dp"
                 android:layout_alignParentTop="true"
@@ -85,12 +86,12 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/botton_bar_myinfo_btn"
+            android:id="@+id/bottom_bar_myinfo_btn"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1">
             <TextView
-                android:id="@+id/botton_bar_text_myinfo"
+                android:id="@+id/bottom_bar_text_myinfo"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -103,7 +104,7 @@
                 android:textSize="14sp"
                 />
             <ImageView
-                android:id="@+id/botton_bar_image_myinfo"
+                android:id="@+id/bottom_bar_image_myinfo"
                 android:layout_width="27dp"
                 android:layout_height="27dp"
                 android:layout_alignParentTop="true"

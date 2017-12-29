@@ -1,6 +1,7 @@
 package cn.edu.gdmec.android.boxuegu.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import cn.edu.gdmec.android.boxuegu.R;
+import cn.edu.gdmec.android.boxuegu.activity.ExercisesDetailActivity;
 import cn.edu.gdmec.android.boxuegu.bean.ExercisesBean;
 
 /**
@@ -88,6 +90,10 @@ public class ExercisesAdapter extends BaseAdapter{
                     return;
                 }
                 //跳转到习题详情页
+                Intent intent = new Intent(mContext, ExercisesDetailActivity.class);
+                intent.putExtra("id",bean.id);
+                intent.putExtra("title",bean.title);
+                mContext.startActivity(intent);
             }
         });
         return converView;

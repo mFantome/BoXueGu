@@ -21,7 +21,7 @@ import cn.edu.gdmec.android.boxuegu.view.MyInfoView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    
+
 
     /**
      * 视图
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBodyLayout = (FrameLayout) findViewById(R.id.main_body);
     }
     /**
-     * 控件的点击事件
+     * 控件的点击事件hhh
      */
     @Override
     public void onClick(View v) {
@@ -227,13 +227,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case 2:
                 //我的界面
-                /*if(mMyInfoView == null){
+                if(mMyInfoView == null){
                     mMyInfoView =new MyInfoView(this);
-                    mBodyLayout.addView(mMyInfoView.getView());
+                    mBodyLayout.addView(mMyInfoView.GetView());
                 }else{
-                    mMyInfoView.getView();
+                    mMyInfoView.GetView();
                 }
-                mMyInfoView.getView();*/
+                mMyInfoView.showView();
                 break;
         }
     }

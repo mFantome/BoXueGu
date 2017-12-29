@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import cn.edu.gdmec.android.boxuegu.R;
 import cn.edu.gdmec.android.boxuegu.activity.LoginActivity;
@@ -34,6 +35,18 @@ public class MyInfoView {
         mInflater = LayoutInflater.from(mContext);
     }
 
+    public View GetView(){
+        if (mCurrentView ==null){
+            createView();
+        }
+
+        return mCurrentView;
+    }
+
+    private void createView() {
+        initView();
+    }
+
     public void initView()
     {
         mCurrentView = mInflater.inflate(R.layout.mian_view_info, null);
@@ -55,8 +68,29 @@ public class MyInfoView {
                 }
             }
         });
-        rl_course_history
+        rl_course_history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(readLoginStatus()){
+                    //跳转到播放记录界面
 
+                }else {
+                    Toast.makeText(mContext,"您还未登录，请登录",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        rl_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(readLoginStatus()){
+                    //跳转到播放记录界面
+
+                }else{
+                    Toast.makeText(mContext,"您还未登录，请登录",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void setLoginParams(boolean isLogin) {
@@ -74,5 +108,12 @@ public class MyInfoView {
 
         return  isLogin;
 
+    }
+
+    public void showView() {
+        if(mCurrentView == null){
+            createView();
+        }
+        mCurrentView.setVisibility(View.VISIBLE);
     }
 }

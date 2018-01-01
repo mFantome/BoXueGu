@@ -25,6 +25,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
     private TextView tv_signature;
     private TextView tv_userName;
     private String spUserName;
+    private TextView tv_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +39,10 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void setlistener() {
-        tv_nickName.setOnClickListener(this);
-        tv_sex.setOnClickListener(this);
-        tv_userName.setOnClickListener(this);
-        tv_signature.setOnClickListener(this);
+        tv_back.setOnClickListener(this);
+        rl_nickName.setOnClickListener(this);
+        rl_sex.setOnClickListener(this);
+        rl_signatrue.setOnClickListener(this);
     }
 
     //从数据库中获取数据
@@ -70,7 +71,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void init(){
-        TextView tv_back = (TextView)findViewById(R.id.tv_back);
+        tv_back = (TextView)findViewById(R.id.tv_back);
         TextView tv_main_title = (TextView) findViewById(R.id.tv_main_title);
         tv_main_title.setText("个人资料");
         RelativeLayout rl_title_bar = (RelativeLayout)findViewById(R.id.title_bar);
@@ -133,6 +134,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
 
 
         });
+        builder.show();
     }
 
     private void setSex(String sex) {

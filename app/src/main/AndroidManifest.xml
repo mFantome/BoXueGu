@@ -18,9 +18,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.UserInfoActivity"></activity>
-        <activity android:name=".activity.RegisiterActivity"></activity>
-        <activity android:name=".activity.ExercisesDetailActivity"></activity>
+        <activity android:name=".activity.UserInfoActivity" />
+        <activity android:name=".activity.RegisiterActivity" />
+        <activity android:name=".activity.ExercisesDetailActivity" />
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.ModifyPswActivity" />
+        <activity android:name=".activity.FindPswActivity"></activity>
     </application>
 
 </manifest>

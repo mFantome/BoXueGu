@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import cn.edu.gdmec.android.boxuegu.R;
 import cn.edu.gdmec.android.boxuegu.activity.LoginActivity;
+import cn.edu.gdmec.android.boxuegu.activity.SettingActivity;
 import cn.edu.gdmec.android.boxuegu.utils.AnalysisUtils;
 
 /**
@@ -84,7 +85,10 @@ public class MyInfoView {
             @Override
             public void onClick(View v) {
                 if(readLoginStatus()){
-                    //跳转到播放记录界面
+                    //跳转到设置界面
+                    Intent intent = new Intent(mContext, SettingActivity.class);
+                    ((Activity) mContext).startActivityForResult(intent,1);
+
 
                 }else{
                     Toast.makeText(mContext,"您还未登录，请登录",Toast.LENGTH_SHORT).show();

@@ -107,7 +107,7 @@ public class FindPswActivity extends AppCompatActivity {
     private String readSecurity(String userName) {
         SharedPreferences sp = getSharedPreferences("loginInfo",MODE_PRIVATE);
         String security =  sp.getString(userName+"_security","");
-
+        //
         return security;
     }
 

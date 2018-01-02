@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import cn.edu.gdmec.android.boxuegu.R;
 
@@ -63,6 +64,7 @@ public class SettingActivity extends AppCompatActivity {
         rl_exit_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(SettingActivity.this,"退出登录成功",Toast.LENGTH_SHORT).show();
                 clearLoginStatus();
                 //把退出登录后的状态传递到mainActivity
                 Intent data = new Intent();

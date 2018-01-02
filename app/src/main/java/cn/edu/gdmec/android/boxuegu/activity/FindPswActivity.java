@@ -51,10 +51,10 @@ public class FindPswActivity extends AppCompatActivity {
                 String validateName = et_validate_name.getText().toString().trim();
                 if("security".equals(from)){//设置密保
                     if(TextUtils.isEmpty(validateName)){
-                        Toast.makeText(FindPswActivity.this,"请输入原始密码",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FindPswActivity.this,"请输入要验证的姓名",Toast.LENGTH_SHORT).show();
                         return;
                     }else{
-                        Toast.makeText(FindPswActivity.this,"请输入原始密码",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FindPswActivity.this,"密保设置成功",Toast.LENGTH_SHORT).show();
                         saveSecurity(validateName);
                         FindPswActivity.this.finish();
                     }
@@ -81,6 +81,13 @@ public class FindPswActivity extends AppCompatActivity {
                         savePsw(userName);
                     }
                 }
+            }
+        });
+
+        tv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FindPswActivity.this.finish();
             }
         });
     }

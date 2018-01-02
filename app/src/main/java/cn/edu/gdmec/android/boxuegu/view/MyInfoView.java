@@ -18,39 +18,27 @@ import cn.edu.gdmec.android.boxuegu.activity.SettingActivity;
 import cn.edu.gdmec.android.boxuegu.activity.UserInfoActivity;
 import cn.edu.gdmec.android.boxuegu.utils.AnalysisUtils;
 
-/**
- * Created by acer on 2017/12/26.
- */
 
 public class MyInfoView {
-    private Context mContext;
-    private final LayoutInflater mInflater;
+    private Activity mContext;
+    private LayoutInflater mInflater;
     private View mCurrentView;
-    private TextView tv_user_name;
-    private RelativeLayout rl_setting;
-    private RelativeLayout rl_course_history;
-    private ImageView iv_head_icon;
     private LinearLayout ll_head;
+    private RelativeLayout rl_course_history,rl_setting;
+    private TextView tv_user_name;
+    public ImageView iv_head_icon;
 
-    public MyInfoView(Context mContext) {
-        this.mContext = mContext;
+    public MyInfoView(Activity context) {
+        mContext = context;
         mInflater = LayoutInflater.from(mContext);
-    }
-
-    public View GetView(){
-        if (mCurrentView ==null){
-            createView();
-        }
-
-        return mCurrentView;
     }
 
     private void createView() {
         initView();
     }
-
-    public void initView()
-    {
+    //获取界面控件
+    private void initView(){
+//        设置布局文件
         mCurrentView = mInflater.inflate(R.layout.mian_view_info, null);
         ll_head = (LinearLayout) mCurrentView.findViewById(R.id.ll_head);
         iv_head_icon = (ImageView) mCurrentView.findViewById(R.id.iv_head_icon);
@@ -62,65 +50,73 @@ public class MyInfoView {
         ll_head.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(readLoginStatus()){
-                    //跳转到个人资料界面
-                    Intent intent = new Intent(mContext, UserInfoActivity.class);
+                //判断是否已经登录
+                if (readLoginStatus()){
+                    // 跳转到个人资料界面
+                    Intent intent = new Intent(mContext,UserInfoActivity.class);
                     mContext.startActivity(intent);
-                }else{
+                }else {
+                    //未登录跳转到登录界面
                     Intent intent = new Intent(mContext, LoginActivity.class);
-                    ((Activity)mContext).startActivityForResult(intent,1);
+                    //带回用户名
+                    mContext.startActivityForResult(intent,1);
                 }
             }
         });
+
+
+
         rl_course_history.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(readLoginStatus()){
-                    //跳转到播放记录界面
+                if (readLoginStatus()){
+                   // Intent intent = new Intent ( mContext, PlayHistoryActivity.class );
+                  //  mContext.startActivity ( intent );
+                    //跳转到播放记录页面
 
                 }else {
-                    Toast.makeText(mContext,"您还未登录，请登录",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext,"您还未登录，请先登录",Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
         rl_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(readLoginStatus()){
-                    //跳转到设置界面
+                if (readLoginStatus()){
+                    //跳转到设置页面
                     Intent intent = new Intent(mContext, SettingActivity.class);
-                    ((Activity) mContext).startActivityForResult(intent,1);
-
-
-                }else{
-                    Toast.makeText(mContext,"您还未登录，请登录",Toast.LENGTH_SHORT).show();
+                    ((Activity)mContext).startActivityForResult(intent,1);
+                }else {
+                    Toast.makeText(mContext,"您还未登录，请先登录",Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
-
+    //登录成功后设置我的界面
     public void setLoginParams(boolean isLogin) {
-        if(isLogin){
+        if (isLogin){
             tv_user_name.setText(AnalysisUtils.readLoginUserName(mContext));
-        }else{
+        }else {
             tv_user_name.setText("点击登录");
         }
     }
-
-    private boolean readLoginStatus(){
-        SharedPreferences sp = mContext.getSharedPreferences("loginInfo",Context.MODE_PRIVATE);
-        boolean isLogin = sp.getBoolean("isLogin", false);
-
-
-        return  isLogin;
-
+    //获取当前导航栏上方所对应的view界面
+    public View getView(){
+        if (mCurrentView == null){
+            createView();
+        }
+        return mCurrentView;
     }
-
-    public void showView() {
-        if(mCurrentView == null){
+    //显示当前导航栏上方所对应的view界面
+    public void showView(){
+        if (mCurrentView == null){
             createView();
         }
         mCurrentView.setVisibility(View.VISIBLE);
+    }
+    private boolean readLoginStatus(){
+        SharedPreferences sp = mContext.getSharedPreferences("loginInfo",Context.MODE_PRIVATE);
+        boolean isLogin = sp.getBoolean("isLogin",false);
+        return isLogin;
     }
 }

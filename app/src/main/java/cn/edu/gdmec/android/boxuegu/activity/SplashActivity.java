@@ -16,7 +16,7 @@ import cn.edu.gdmec.android.boxuegu.MainActivity;
 import cn.edu.gdmec.android.boxuegu.R;
 
 /**
- * Created by student on 17/12/25.
+ * Created by student on 17/12/25.ikpo
  */
 
 public class SplashActivity extends AppCompatActivity {

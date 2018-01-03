@@ -64,7 +64,7 @@ public class VideoPlayActivity extends AppCompatActivity{
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        //把视频详情界面传过来的被点击视频的位置传递回去
+        //把视频详情界面传过来的被点击视频的位置传递回去  sah
         Intent data = new Intent();
         data.putExtra("position",position);
         setResult(RESULT_OK,data);

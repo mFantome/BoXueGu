@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import cn.edu.gdmec.android.boxuegu.view.CourseView;
 import cn.edu.gdmec.android.boxuegu.view.ExercisesView;
 import cn.edu.gdmec.android.boxuegu.view.MyInfoView;
 
@@ -23,12 +24,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //    视图
     private ExercisesView mExercisesView;
+    private MyInfoView mMyInfoView;
+    private CourseView mCourseView;
     //    中间内容栏
     private FrameLayout mBodyLayout;
     //    底部按钮
     public LinearLayout mBottomLayout;
 
-    private MyInfoView mMyInfoView;
+
 
     private View mCourseBtn;
     private View mExercisesBtn;
@@ -169,6 +172,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (viewIndex){
             case 0:
 
+                //课程界面
+                if(mCourseView == null){
+                    mCourseView = new CourseView(this);
+                    mBodyLayout.addView(mCourseView.getView());
+                }else{
+                    mCourseView.getView();
+                }
+                mCourseView.showView();
                 break;
             case 1:
 //                习题界面

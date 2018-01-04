@@ -25,6 +25,8 @@ public class PlayHistoryActivity extends AppCompatActivity {
     private ListView lv_list;
     private TextView tv_none;
     private PlayHistoryAdapter adapter;
+    private  RelativeLayout rl_title_bar;
+    private TextView tv_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,23 +42,25 @@ public class PlayHistoryActivity extends AppCompatActivity {
     private void init() {
         tv_main_title = (TextView) findViewById(R.id.tv_main_title);
         tv_main_title.setText("播放记录");
-        RelativeLayout rl_title_bar = (RelativeLayout) findViewById(R.id.title_bar);
+        rl_title_bar = (RelativeLayout) findViewById(R.id.title_bar);
         rl_title_bar.setBackgroundColor(Color.parseColor("#30B4FF"));
-        TextView tv_back = (TextView) findViewById(R.id.tv_back);
+        tv_back = (TextView) findViewById(R.id.tv_back);
         lv_list = (ListView) findViewById(R.id.lv_list);
         tv_none = (TextView) findViewById(R.id.tv_none);
         if(vbl.size() == 0){
             tv_none.setVisibility(View.VISIBLE);
         }
+        adapter = new PlayHistoryAdapter(this);
+        adapter.setData(vbl);
+        lv_list.setAdapter(adapter);
+        //后退按钮的点击事件
         tv_back.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
-                finish();
+                PlayHistoryActivity.this.finish();
             }
         });
-        adapter = new PlayHistoryAdapter(this);
-        adapter.setData(vbl);
-        lv_list.setAdapter(adapter);
+
     }
 }

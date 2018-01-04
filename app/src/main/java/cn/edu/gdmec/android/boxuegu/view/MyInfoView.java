@@ -115,7 +115,7 @@ public class MyInfoView {
         }
         mCurrentView.setVisibility(View.VISIBLE);
     }
-    private boolean readLoginStatus(){
+    public boolean readLoginStatus(){
         SharedPreferences sp = mContext.getSharedPreferences("loginInfo",Context.MODE_PRIVATE);
         boolean isLogin = sp.getBoolean("isLogin",false);
         return isLogin;

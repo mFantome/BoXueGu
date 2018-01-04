@@ -241,7 +241,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onKeyDown(keyCode,event);
     }
     //获取SharedPreferences中的登录状态
-    private boolean readLoginStatus() {
+    public boolean readLoginStatus() {
         SharedPreferences sp = getSharedPreferences("loginInfo",Context.MODE_PRIVATE);
         boolean isLogin = sp.getBoolean("isLogin",false);
         return isLogin;

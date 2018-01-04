@@ -110,7 +110,7 @@ public class DBUtils {
     public ArrayList<VideoBean> getVideoHistory(String userName) {
         String sql = "SELECT * FROM "+SqlLiteHelper.U_VIDEO_PLAY_LIST + " WHERE userName = ?";
         Cursor cusor = db.rawQuery(sql,new String[]{userName});
-        ArrayList<VideoBean> vbl = new ArrayList<>();
+        ArrayList<VideoBean> vbl = new ArrayList<VideoBean>();
         VideoBean bean = null;
         while (cusor.moveToNext()){
             bean = new VideoBean();

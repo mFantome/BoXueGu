@@ -1,5 +1,6 @@
 package cn.edu.gdmec.android.boxuegu.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -44,6 +45,7 @@ public class VideoListActivity extends AppCompatActivity implements View.OnClick
     private int chapterId;
     private String intro;
     private DBUtils db;
+    private Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,13 +89,21 @@ public class VideoListActivity extends AppCompatActivity implements View.OnClick
                     if (readLoginStatus()) {
                         String userName= AnalysisUtils.readLoginUserName(VideoListActivity.this);
                         db.saveVideoPlayList(videoList.get(position),userName);
+                        //跳转到视频播放界面
+                        Intent intent = new Intent(VideoListActivity.this,VideoPlayActivity.class);
+                        intent.putExtra("videoPath",videoPath);
+                        intent.putExtra("position",position);
+                        startActivityForResult(intent,1);
+
+                    }else{
+                        //跳转到登陆界面
+                        Intent intent = new Intent(VideoListActivity.this,LoginActivity.class);
+                        startActivityForResult(intent,1);
+                        Toast.makeText(VideoListActivity.this,"您还未登录，请先登录",Toast.LENGTH_SHORT).show();
+                        return;
 
                     }
-                    //跳转到视频播放界面
-                    Intent intent = new Intent(VideoListActivity.this,VideoPlayActivity.class);
-                    intent.putExtra("videoPath",videoPath);
-                    intent.putExtra("position",position);
-                    startActivityForResult(intent,1);
+
                 }
             }
         });

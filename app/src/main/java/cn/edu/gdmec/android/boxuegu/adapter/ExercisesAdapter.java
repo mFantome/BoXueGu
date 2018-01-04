@@ -2,16 +2,21 @@ package cn.edu.gdmec.android.boxuegu.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
+import cn.edu.gdmec.android.boxuegu.MainActivity;
 import cn.edu.gdmec.android.boxuegu.R;
 import cn.edu.gdmec.android.boxuegu.activity.ExercisesDetailActivity;
+import cn.edu.gdmec.android.boxuegu.activity.LoginActivity;
+import cn.edu.gdmec.android.boxuegu.activity.UserInfoActivity;
 import cn.edu.gdmec.android.boxuegu.bean.ExercisesBean;
 
 /**
@@ -84,16 +89,31 @@ public class ExercisesAdapter extends BaseAdapter{
 
         }
         converView.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View view) {
-                if(bean == null){
-                    return;
+
+                //判断是否已经登录
+                if (readLoginStatus()){
+                    if(bean == null){
+                        return;
+                    }
+                    //跳转到习题详情页
+                    Intent intent = new Intent(mContext, ExercisesDetailActivity.class);
+                    intent.putExtra("id",bean.id);
+                    intent.putExtra("title",bean.title);
+                    mContext.startActivity(intent);
+                }else {
+                    // 跳转到登陆界面
+                    Intent intent = new Intent(mContext,LoginActivity.class);
+                    mContext.startActivity(intent);
+                    //未登录
+                    Toast.makeText(mContext,"您还未登录，请先登录",Toast.LENGTH_SHORT).show();
                 }
-                //跳转到习题详情页
-                Intent intent = new Intent(mContext, ExercisesDetailActivity.class);
-                intent.putExtra("id",bean.id);
-                intent.putExtra("title",bean.title);
-                mContext.startActivity(intent);
+
+
+
             }
         });
         return converView;
@@ -102,4 +122,17 @@ public class ExercisesAdapter extends BaseAdapter{
         public TextView title,content;
         public TextView order;
     }
+    public boolean readLoginStatus1() {
+        MainActivity rs = new MainActivity();
+        boolean isLogin = rs.readLoginStatus();
+        return isLogin;
+    }
+    //获取SharedPreferences中的登录状态
+    public boolean readLoginStatus() {
+        SharedPreferences sp = mContext.getSharedPreferences("loginInfo",Context.MODE_PRIVATE);
+        boolean isLogin = sp.getBoolean("isLogin",false);
+        return isLogin;
+    }
+
+
 }

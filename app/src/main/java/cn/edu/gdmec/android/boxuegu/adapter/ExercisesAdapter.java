@@ -1,11 +1,14 @@
 package cn.edu.gdmec.android.boxuegu.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v4.app.ActivityCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -109,7 +112,9 @@ public class ExercisesAdapter extends BaseAdapter{
                     Intent intent = new Intent(mContext,LoginActivity.class);
                     mContext.startActivity(intent);
                     //未登录
+                    ((Activity)mContext).startActivityForResult(intent,1);
                     Toast.makeText(mContext,"您还未登录，请先登录",Toast.LENGTH_SHORT).show();
+
                 }
 
 

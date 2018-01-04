@@ -100,7 +100,7 @@ public class VideoListActivity extends AppCompatActivity implements View.OnClick
                         Intent intent = new Intent(VideoListActivity.this,LoginActivity.class);
                         startActivityForResult(intent,1);
                         Toast.makeText(VideoListActivity.this,"您还未登录，请先登录",Toast.LENGTH_SHORT).show();
-                        return;
+
 
                     }
 
